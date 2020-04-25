@@ -19,7 +19,8 @@ var session *mgo.Session
 func Init() (*mgo.Database, error) {
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatal("Error loading .env file")
+		// log.Fatal("Error loading .env file")
+		fmt.Println("Error loading .env file")
 	}
 
 	uri := os.Getenv("MONGODB_URI")
