@@ -19,8 +19,9 @@ var session *mgo.Session
 func Init() (*mgo.Database, error) {
 	err := godotenv.Load()
 	if err != nil {
-		// log.Fatal("Error loading .env file")
-		fmt.Println("Error loading .env file")
+
+		// log.Fatal("Error loading .env file") // For Developmenet
+		fmt.Println("Error loading .env file") // For Production
 	}
 
 	uri := os.Getenv("MONGODB_URI")
@@ -47,8 +48,8 @@ func Init() (*mgo.Database, error) {
 	}
 	fmt.Println("I AM DATABASE NAMES:", xxx)
 
-	// db := session.DB("family-photos")
-	db := session.DB("heroku_46r360r3")
+	// db := session.DB("family-photos") // For Developmenet
+	db := session.DB("heroku_46r360r3") // For Production
 
 	err = db.C("users").Insert(&models.User{"Stefan Klaste", "klaste@posteo.de"},
 		&models.User{"Nishant Modak", "modak.nishant@gmail.com"},
