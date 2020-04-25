@@ -25,8 +25,8 @@ func Init() (*mgo.Database, error) {
 	uri := os.Getenv("MONGODB_URI")
 	if uri == "" {
 		fmt.Println("no connection string provided")
-		// os.Exit(1)
-		return nil, err
+		os.Exit(1)
+		// return nil, err
 	}
 
 	session, err := mgo.Dial(uri)
