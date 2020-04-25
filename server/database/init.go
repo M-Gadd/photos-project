@@ -41,8 +41,9 @@ func Init() (*mgo.Database, error) {
 
 	xxx, err := session.DatabaseNames()
 	if err != nil {
-		panic(err)
-		return nil, err
+		// panic(err)
+		// return nil, err
+		fmt.Println("Can't get databases")
 	}
 	fmt.Println("I AM DATABASE NAMES:", xxx)
 
